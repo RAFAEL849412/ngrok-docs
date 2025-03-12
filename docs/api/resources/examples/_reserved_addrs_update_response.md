@@ -5,15 +5,15 @@
 ```json
 {
 	"addr": "1.tcp.ngrok.io:20000",
-	"created_at": "2025-03-11T18:37:23Z",
+	"created_at": "2025-03-12T10:10:22Z",
 	"description": "SSH for device #001",
 	"endpoint_configuration": {
-		"id": "ec_2uBNwF3DNMRzHy4kymnwgY1P0Zx",
-		"uri": "https://api.ngrok.com/endpoint_configurations/ec_2uBNwF3DNMRzHy4kymnwgY1P0Zx"
+		"id": "ec_2uDDOuGljSW3vWLCDtZBlJI2Ecd",
+		"uri": "https://api.ngrok.com/endpoint_configurations/ec_2uDDOuGljSW3vWLCDtZBlJI2Ecd"
 	},
-	"id": "ra_2uBNwBfytRLRD6J5NE3pwT7rRUy",
+	"id": "ra_2uDDOtK8sB2BW6jWnMXwYtaVRrA",
 	"metadata": "{\"proto\": \"ssh\"}",
 	"region": "us",
-	"uri": "https://api.ngrok.com/reserved_addrs/ra_2uBNwBfytRLRD6J5NE3pwT7rRUy"
+	"uri": "https://api.ngrok.com/reserved_addrs/ra_2uDDOtK8sB2BW6jWnMXwYtaVRrA"
 }
 ```

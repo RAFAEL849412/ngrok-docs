@@ -9,5 +9,5 @@ curl \
 -H "Content-Type: application/json" \
 -H "Ngrok-Version: 2" \
 -d '{"add":{"x-frontend":"ngrok"},"enabled":true,"remove":["cache-control"]}' \
-https://api.ngrok.com/edges/https/edghts_2uBNzGsTfFsprYp0B1FEZQf5c1v/routes/edghtsrt_2uBNzHjjElk81oeYW8DYAygC58r/request_headers
+https://api.ngrok.com/edges/https/edghts_2uDDRuIHiTccfYz5NWxdpywi7KL/routes/edghtsrt_2uDDRx7DZMXoMPXlfPKZeZWll42/request_headers
 ```
