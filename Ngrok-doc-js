@@ -1,3 +1,15 @@
+const jwt = require('jsonwebtoken');
+const payload = {
+    userId: 123,
+    username: 'usuario_teste'
+};
+
+const secretKey = 'minha_chave_secreta';
+
+const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
+
+console.log('Token gerado:', token);
+
 const config = {
     name: "ngrok-doc",
     version: "0.0.0",
