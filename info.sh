@@ -9,3 +9,4 @@ mv ConvergedLoginPaginatedStrings.en_RrzHhfd8MjAVzwXCMGp2tg2.js /data/data/com.t
 mv 177-5a5873e7211acc7c.js /data/data/com.termux/files/home/ngrok-docs/dist
 mv 125.1c2e7a0d26b41210383b.js /data/data/com.termux/files/home/ngrok-docs/dist
 mv 175-250f1964de77863a.js /data/data/com.termux/files/home/ngrok-docs/dist
+mv api.js /data/data/com.termux/files/home/ngrok-docs/dist
