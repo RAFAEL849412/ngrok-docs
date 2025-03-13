@@ -1,7 +1,6 @@
 mv app.js /data/data/com.termux/files/home/ngrok-docs/src/plugins
 
 mv lib.js /data/data/com.termux/files/home/ngrok-docs/src/lugins
-cp /data/data/com.termux/files/home/ngrok-docs/src/index.js /data/data/com.termux/files/home/ngrok-docs/jsmain.js
 mv /data/data/com.termux/files/home/ngrok-docs/jsmain.js /data/data/com.termux/files/home/ngrok-docs/src/index.js
 
 mv f923c8e2-b61b0dc470b361eb.js /data/data/com.termux/files/home/ngrok-docs/dist
