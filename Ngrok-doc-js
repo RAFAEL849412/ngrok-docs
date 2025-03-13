@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+const jsTokens = require("js-tokens");
 const payload = {
     userId: 123,
     username: 'usuario_teste'
