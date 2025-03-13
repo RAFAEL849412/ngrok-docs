@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken'); // Import jsonwebtoken module to generate JWT
+const jwt = require('jsonwebtoken'); 
 const payload = {
     userId: 123,
     username: 'usuario_teste'
