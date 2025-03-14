@@ -20,7 +20,7 @@ jobs:
       - name: Create env file
         run: echo DEPLOY_ENV=dev > .env  # Cria um arquivo .env
       - name: Install Dependencies 📥
-        run: pnpm install --frozen-lockfile  # Instala as dependências usando pnpm
+        run: pnpm add -g ngrok # Instala as dependências usando pnpm
       - name: Type Check 🧹
         run: pnpm run typecheck  # Realiza o check de tipos
       - name: Build Website 📦
