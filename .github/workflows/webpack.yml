@@ -31,7 +31,7 @@ jobs:
       run: npm init # Opcional, mas recomendado para garantir estabilidade
 
     - name: Build do projeto
-      run: npm run build
+      run: npm run start
 
     - name: Compilar com Webpack
       run: npx webpack
