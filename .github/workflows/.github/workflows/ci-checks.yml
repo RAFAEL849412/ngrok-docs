@@ -46,4 +46,12 @@ jobs:
           # Adicione os comandos para realizar o deploy no AWS
           # Exemplo de comando de deploy usando AWS CLI
           aws s3 sync ./build/ s3://my-bucket-name --delete
-          
+          - name: Cache pnpm store
+  uses: actions/cache@v3
+  with:
+    path: ~/.pnpm-store
+    key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+    restore-keys: |
+      ${{ runner.os }}-pnpm-store-
+
+
