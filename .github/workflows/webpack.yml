@@ -27,8 +27,8 @@ jobs:
     - name: Instalar pnpm
       run: npm install -g pnpm
 
-    - name: Instalar dependências
-      run: pnpm install --no-frozen-lockfile  # Corrigido para não falhar devido ao lockfile desatualizado
+    - name: Instalar dependências (sem o frozen-lockfile)
+      run: pnpm install --no-frozen-lockfile  # Usando --no-frozen-lockfile para evitar o erro
 
     - name: Rodar testes
       run: pnpm test  # Certifique-se de ter um script de teste no seu package.json
