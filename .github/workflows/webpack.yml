@@ -87,7 +87,8 @@ jobs:
     name: Test with dest
 
     runs-on: ${{ matrix.os }}
-
+     custom:
+  - https://opencollective.com/pnpm
     strategy:
       fail-fast: false
       matrix:
@@ -215,6 +216,13 @@ jobs:
         with:
           version: 9.15.5
           run_install: ${{ matrix.run_install.value }}
+        version: 2
+    updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
 
       - name: 'Test: which'
         run: which pnpm; which pnpx
