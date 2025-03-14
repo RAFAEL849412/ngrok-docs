@@ -49,4 +49,9 @@
   },
   "license": "MIT",
   "author": "RAFAEL TAVARES"
+  "pnpm": {
+  "overrides": {
+    "cookie": ">=1.0.2",
+    "esbuild": ">=0.25.0"
+  }  
 }
