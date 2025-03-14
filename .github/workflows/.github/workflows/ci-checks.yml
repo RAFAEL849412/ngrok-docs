@@ -11,7 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4  # Faz checkout do código
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4  # Configura o pnpm
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"  # Usando .nvmrc para determinar a versão do Node.js
