@@ -1,0 +1,20 @@
+lockfileVersion: 5.4
+specifiers:
+  "express": ^4.17.1
+  "lodash": ^4.17.21
+packages:
+  /express/4.17.1:
+    resolution:
+      integrity: sha512-FD0h/Xz0v7Fne7Fl82z9LPO2eTzjD6J6F5F4F8p3A3bB6FgD0vMmTscLpzO4mr8oXtIDrA4gC9qC8cn1zmA0Ug==
+    engines: {node: '>= 0.10.0'}
+    dev: false
+    dependencies:
+      accepts: 1.3.7
+      body-parser: 1.19.0
+      cookie: 0.4.1
+      debug: 4.3.3
+  /lodash/4.17.21:
+    resolution:
+      integrity: sha512-DvUtGnB27RftmTe8T3I+Jp7czT23VujOSzQznsuT2y5y63F0Bxz74FLkA6xQgUwToRGf9qvFwzz6P7mLwOBV8g==
+    engines: {node: '>= 0.10.0'}
+    dev: false
