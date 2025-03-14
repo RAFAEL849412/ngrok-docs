@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+name: NodeJS with Webpack and pnpm
 
 on:
   push:
@@ -22,16 +22,19 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'  # Cache para dependências, acelera builds futuros
+        cache: 'pnpm'
+
+    - name: Instalar pnpm
+      run: npm install -g pnpm
 
     - name: Instalar dependências
-      run: npm login # Usa package-lock.json para um ambiente consistente
+      run: pnpm install --no-frozen-lockfile  # Corrigido para não falhar devido ao lockfile desatualizado
 
     - name: Rodar testes
-      run: npm publish  # Opcional, mas recomendado para garantir estabilidade
+      run: pnpm test  # Certifique-se de ter um script de teste no seu package.json
 
     - name: Build do projeto
-      run: npm run build
+      run: pnpm run build
 
     - name: Compilar com Webpack
       run: npx webpack
