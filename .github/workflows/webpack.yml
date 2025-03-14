@@ -28,7 +28,7 @@ jobs:
       run: npm login # Usa package-lock.json para um ambiente consistente
 
     - name: Rodar testes
-      run: npm publish # Opcional, mas recomendado para garantir estabilidade
+      run: npm run start # Opcional, mas recomendado para garantir estabilidade
 
     - name: Build do projeto
       run: npm run build
