@@ -1,10 +1,12 @@
-name: NodeJS with Webpack and pnpm
+name: NodeJS com Webpack e pnpm
 
 on:
   push:
-    branches: [ "main" ]
+    branches: 
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches: 
+      - main
 
 jobs:
   build:
@@ -12,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [18.x, 20.x, 22.x]  # Testar em diferentes versões do Node.js
 
     steps:
     - name: Checkout do código
@@ -22,53 +24,26 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
+        cache: 'pnpm'  # Cache para dependências do pnpm
 
     - name: Instalar pnpm
-      run: npm install -g pnpm
+      run: npm install -g pnpm  # Instalar pnpm globalmente
 
-    - name: Instalar dependências (sem o frozen-lockfile)
-      run: pnpm install --no-frozen-lockfile  # Usando --no-frozen-lockfile para evitar o erro
+    - name: Instalar dependências
+      run: pnpm install --no-frozen-lockfile  # Instalar dependências sem verificar o lockfile
 
     - name: Rodar testes
-      run: pnpm test  # Certifique-se de ter um script de teste no seu package.json
+      run: pnpm test  # Executar testes, certifique-se de ter um script 'test' no seu package.json
 
     - name: Build do projeto
-      run: pnpm run build
+      run: pnpm run build  # Construir o projeto (certifique-se de ter um script 'build')
 
     - name: Compilar com Webpack
-      run: npx webpack
+      run: npx webpack  # Compilação do projeto com Webpack
 
     - name: Publicar artefatos (Opcional)
       uses: actions/upload-artifact@v4
       with:
         name: build-output
-        path: dist  # Supondo que o Webpack gera saída em "dist/"
-        name: Setup pnpm
-
-on: 
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
-jobs:
-  setup-pnpm:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: '7.0.0'  # ou outra versão desejada
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Run tests
-        run: pnpm test
+        path: dist  # Supondo que o Webpack gera a saída em "dist/"
+        
