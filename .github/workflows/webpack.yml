@@ -73,4 +73,36 @@ jobs:
 
     - name: 'Test: Run build'
       run: pnpm run build
-      
+      name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.x'
+
+      - name: Install pnpm (v3.x)
+        run: |
+          curl -fsSL https://get.pnpm.io/v3.5.js | node - add --global pnpm@3
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build project
+        run: pnpm run build
+        
