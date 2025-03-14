@@ -44,4 +44,31 @@ jobs:
       with:
         name: build-output
         path: dist  # Supondo que o Webpack gera saída em "dist/"
-        
+        name: Setup pnpm
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  setup-pnpm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: '7.0.0'  # ou outra versão desejada
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run tests
+        run: pnpm test
