@@ -93,6 +93,16 @@
     "onlyBuiltDependencies": [
       "core-js",
       "core-js-pure"
+      {
+  "description": "Principais mudanças Melhorias de desempenho Correções de bugs críticos",
+  "scripts": {
+    "build": "echo 'Construindo o projeto...'",
+    "prepublish": "npm run build",
+    "publish": "npm publish --access public"
+  },
+  "author": "RAFAEL TAVARES",
+  "license": "MIT"
+      }
     ]
   }
 }
