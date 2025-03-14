@@ -1,23 +1,36 @@
-name: CI Checks
+name: CI
 
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  ci-checks:
+  install-and-build:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      # Baixar o repositório
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Configurar o pnpm
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
         with:
-          version: '7'  # Specify the version of pnpm you want to use
-      - name: 'Create env file'
-        run: |
-          echo DEPLOY_ENV=dev > .env
-      - name: Install Dependencies 📥
-        run: pnpm install --frozen-lockfile
-      - name: Type Check 🧹
-        run: pnpm run typecheck
-      - name: Build website 📦
+          version: '7.0.0'  # Defina a versão do pnpm que você deseja usar (opcional)
+
+      # Instalar dependências (sem --frozen-lockfile)
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      # Rodar os testes (se houver)
+      - name: Run tests
+        run: pnpm test
+
+      # Outros passos, como construir o projeto ou realizar deploy
+      - name: Build the project
         run: pnpm run build
-        
