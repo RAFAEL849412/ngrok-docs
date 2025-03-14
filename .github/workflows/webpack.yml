@@ -25,7 +25,7 @@ jobs:
         cache: 'npm'  # Cache para dependências, acelera builds futuros
 
     - name: Instalar dependências
-      run: npm ci  # Usa package-lock.json para um ambiente consistente
+      run: npm run start # Usa package-lock.json para um ambiente consistente
 
     - name: Rodar testes
       run: npm test  # Opcional, mas recomendado para garantir estabilidade
