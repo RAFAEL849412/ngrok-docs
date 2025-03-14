@@ -1,38 +1,49 @@
-name: CI Checks
+name: CI and Deploy
 
 on: push
+  branches:
+    - main  # Aciona quando há push na branch principal
 
 jobs:
+  # Job para realizar os testes e verificação de tipo
   ci-checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4  # Faz checkout do código
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v4  # Configura o pnpm
       - uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc"
-          registry-url: "https://registry.npmjs.org"
-          cache: 'pnpm'
-      - name: 'Create env file'
-        run: |
-          echo DEPLOY_ENV=dev > .env
+          node-version-file: ".nvmrc"  # Usando .nvmrc para determinar a versão do Node.js
+          registry-url: "https://registry.npmjs.org"  # Definir o registry do npm
+          cache: 'pnpm'  # Configura cache para o pnpm
+      - name: Create env file
+        run: echo DEPLOY_ENV=dev > .env  # Cria um arquivo .env
       - name: Install Dependencies 📥
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile  # Instala as dependências usando pnpm
       - name: Type Check 🧹
-        run: pnpm run typecheck
-      - name: Build website 📦
-        run: pnpm run build 
-        jobs:
+        run: pnpm run typecheck  # Realiza o check de tipos
+      - name: Build Website 📦
+        run: pnpm run build  # Constrói o projeto
+
+  # Job para realizar o deploy
   deploy:
     runs-on: ubuntu-latest
+    needs: ci-checks  # Esse job depende do job ci-checks
     steps:
       - name: Check out the code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2  # Faz checkout do código para o deploy
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v2  # Configura as credenciais AWS
         with:
-          aws-access-key-id: ${{ 2b93c3a24618363a84e2607579de9e100782e656921a8a26ed813246c77b17e9 }}
-          aws-secret-access-key: ${{ 2b93c3a24618363a84e2607579de9e100782e656921a8a26ed813246c77b17e9 }}
-          aws-region: us-east-1  # Set your AWS region here
+          aws-access-key-id: ${{ 2b93c3a24618363a84e2607579de9e100782e656921a8a26ed813246c77b17e9 }}  # Usa secrets do GitHub para as credenciais
+          aws-secret-access-key: ${{ 2b93c3a24618363a84e2607579de9e100782e656921a8a26ed813246c77b17e9}}
+          aws-region: us-east-1  # Defina a região da AWS onde deseja fazer o deploy
+
+      - name: Deploy to AWS
+        run: |
+          # Adicione os comandos para realizar o deploy no AWS
+          # Exemplo de comando de deploy usando AWS CLI
+          aws s3 sync ./build/ s3://my-bucket-name --delete
+          
