@@ -15,7 +15,7 @@
           "httpVersion": "HTTP/1.1",
           "headers": [
             {"name": "Content-Type", "value": "application/json"},
-            {"name": "Authorization", "value": "Bearer your_token_here"}
+            {"name": "Authorization", "value": "Bearer 2tbGpvEZks9ix3D5JK8QgGkP8Dj_5JuiWTKCFwkiWMFNgYv2g"}
           ],
           "postData": {
             "mimeType": "application/json",
