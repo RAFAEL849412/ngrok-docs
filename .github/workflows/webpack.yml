@@ -1,12 +1,10 @@
-name: NodeJS com Webpack e pnpm
+name: NodeJS with Webpack
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -14,63 +12,17 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]  # Testar com várias versões do Node.js
+        node-version: [18.x, 20.x, 22.x]
 
     steps:
-      - name: Checkout do código
-        uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
-      - name: Configurar Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'  # Cache para dependências do pnpm
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
 
-      - name: Instalar pnpm
-        run: npm install -g pnpm  # Instalar pnpm globalmente
-
-      - name: Instalar dependências
-        run: pnpm install --no-frozen-lockfile  # Instalar dependências sem verificar o lockfile
-
-      - name: Rodar testes
-        run: pnpm test  # Executar os testes
-
-      - name: Build do projeto
-        run: pnpm run build  # Construir o projeto
-
-      - name: Compilar com Webpack
-        run: npx webpack  # Executar o Webpack para compilar
-
-      - name: Publicar artefatos (Opcional)
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-output
-          path: dist  # Caminho onde o Webpack coloca os artefatos gerados
-
-  test:
-    name: Testar com diferentes versões do pnpm e sistemas operacionais
-
-    runs-on: ${{ matrix.os }}  # Rodar em diferentes sistemas operacionais
-
-    strategy:
-      matrix:
-        pnpm-version: [9.15.5]
-        os: [ubuntu-latest, macos-latest, windows-latest]
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Configurar pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: ${{ matrix.pnpm-version }}
-
-      - name: Verificar instalação do pnpm
-        run: which pnpm  # Verificar se o pnpm está instalado corretamente
-
-      - name: Instalar dependências
-        run: pnpm install  # Instalar dependências do projeto
-
-      - name: Rodar build do projeto
-        run: pnpm run build  # Construir o projeto
-        
+    - name: Build
+      run: |
+        npm install
+        npx webpack
