@@ -1,0 +1,142 @@
+defaults:
+  - _self_
+  - dset: my_dataset
+  - solver: custom_solver
+
+device: cuda
+dtype: float32
+autocast: true
+autocast_dtype: bfloat16
+seed: 42
+show: true  # Mostrar o modelo e seu tamanho antes de iniciar o treinamento
+continue_from: /path/to/checkpoint  # Continuar de um ponto de verificação
+execute_only: train  # Executar apenas a fase de treinamento
+execute_inplace: true  # Executar a etapa de treinamento no local, sem sobrescrever
+
+benchmark_no_load: true  # Repetir o mesmo batch para benchmarking, sem carregar novos dados
+
+efficient_attention_backend: xformers  # Usar o backend xformers para atenção eficiente
+num_threads: 4  # Usar 4 threads da CPU para operações paralelizadas
+mp_start_method: spawn  # Método de multiprocessamento
+
+label: "experiment_with_custom_solver"  # Nome da execução do experimento
+
+logging:
+  level: DEBUG
+  log_updates: 5
+  log_tensorboard: true
+  log_wandb: true
+tensorboard:
+  with_media_logging: true
+  name: "AudioCraft_Training"
+  sub_dir: "2025_february"
+wandb:
+  with_media_logging: true
+  project: "audiocraft_experiment"
+  name: "training_phase"
+  group: "group1"
+
+slurm:
+  gpus: 2  # Usar 2 GPUs
+  mem_per_gpu: 16  # Alocar 16 GB de memória por GPU
+  time: 7200  # Tempo máximo de execução em segundos
+  constraint: "gpu_model"
+  partition: "high_performance"
+  comment: "Experiment with custom settings"
+  setup:
+    - "module load pytorch/1.10.0"
+  exclude: "node123"  # Excluir este nó do cluster
+
+dora:
+  dir: server.py
+  exclude: [
+    'device', 'wandb.*', 'tensorboard.*', 'logging.*',
+    'dataset.num_workers', 'eval.num_workers', 'special.*',
+    'metrics.*',
+    'execute_only', 'execute_best', 'generate.every',
+  ]
+  use_rendezvous: true
+  git_save: true  # Salvar o repositório Git para garantir reprodutibilidade do experimento
+
+
+data_root: instance.py
+input_channels: 1
+input_feat_per_channel: 80
+output_channels: 1
+output_feat_per_channel: 1
+output_sample_rate: 16000
+output_feat_reduction_rate: 0
+
+multitask:
+  source_unit:
+    data: common.py
+    decoder_type: transformer
+    dict: app.py
+    encoder_layer: 6
+    loss_weight: 8.0
+    target_type: text
+
+specaugment:
+  freq_mask_F: 27
+  freq_mask_N: 1
+  time_mask_N: 1
+  time_mask_T: 100
+  time_mask_p: 1.0
+  time_wrap_W: 0
+
+transforms:
+  _eval:
+    - utterance_cmvn
+  _train:
+    - utterance_cmvn
+    - specaugment
+
+vocoder:
+  dur_prediction: true
+  model_path: another_script.py
+  speaker: false
+  type: true
+
+hub:
+  input_type: true
+  tts_model_id: 256281040558
+  unit_vocoder: true
+  generation_args:
+    beam: 10
+    max_len_a: 1
+
+logging:
+  level: INFO
+  log_updates: 10
+  log_tensorboard: true
+  log_wandb: true
+tensorboard:
+  with_media_logging: true
+  name: "RAFAEL TAVARES"
+  sub_dir: "bin"
+wandb:
+  with_media_logging: true
+  project: "server.py"
+  name: "model_training"
+  group: "group_1"
+
+slurm:
+  gpus: 4
+  mem_per_gpu: 16
+  time: 7200  # Tempo máximo de execução em segundos
+  partition: high_performance
+  comment: "Training with custom transformer-based model"
+  setup:
+    - "module load pytorch/1.10.0"
+  exclude: "node123"
+
+dora:
+  dir: /checkpoint/${oc.env:USER}/experiments/speech_synthesis/outputs
+  exclude: [
+    'device', 'wandb.*', 'tensorboard.*', 'logging.*',
+    'dataset.num_workers', 'eval.num_workers', 'special.*',
+    'metrics.*',
+    'execute_only', 'execute_best', 'generate.every',
+  ]
+  use_rendezvous: true
+  git_save: true

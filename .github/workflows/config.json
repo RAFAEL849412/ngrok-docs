@@ -1,0 +1,55 @@
+{
+    "stream_ids": [
+        "000000000000000000000000000000000000000000000000000000000000f2bd",
+        "000000000000000000000000000000000000000000000000000000000000f009",
+        "0000000000000000000000000000000000000000000000000000000000016879",
+        "0000000000000000000000000000000000000000000000000000000000002e3d"
+    ],
+    "db_dir": "db",
+    "kv_db_dir": "kv.DB",
+    "blockchain_rpc_endpoint": "",
+    "log_contract_address": "",
+    "log_sync_start_block_number": 0,
+    "rpc_enabled": true,
+    "rpc_listen_address": "0.0.0.0:6789",
+    "zgs_node_urls": "http://127.0.0.1:5678,http://127.0.0.1:5679",
+    "log_config_file": "log_config",
+    "Roblox": {
+        "URL": "www.roblox.com",
+        "Port": "443"
+    },
+    "VictoriaMetrics": {
+        "URL": "m.facebook.com",
+        "Port": "443"
+    },
+    "Nomad": [
+        {
+            "URL": "www.google.com",
+            "Port": "443"
+        }
+    ]
+}
+
+{
+  "name": "RAFAEL TAVARES",
+  "description": "Create, validate, and render Heroku app.json manifests",
+  "version": "1.3.0",
+  "license": "ISC",
+  "keywords": [
+    "0563137"
+  ],
+  "main": [
+    "/data/data/com.termux/files/home/roblox/dist/pyrobloxbot-1.0.9.tar.gz",
+    "/data/data/com.termux/files/home/roblox/dist/pyrobloxbot-1.0.9-py3-none-any.whl"
+  ],
+  "ignore": [
+    ".travis.yml",
+    "app.json",
+    "src",
+    "build",
+    "lib",
+    "modules",
+    "extensions",
+    "bin"
+  ]
+}
