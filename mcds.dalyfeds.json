@@ -11,7 +11,7 @@
         "time": 120,
         "request": {
           "method": "POST",
-          "url": "https://ngrok.com/docs,
+          "url": "https://ngrok.com/docs",
           "httpVersion": "HTTP/1.1",
           "headers": [
             {"name": "Content-Type", "value": "application/json"},
