@@ -1,9 +1,16 @@
-name: CI Checks
+name: Deploy ngrok docs
 
-on: push
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: "deploy"
 
 jobs:
-  ci-checks:
+  deploy:
+    name: Deploy ngrok docs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,12 +21,43 @@ jobs:
           node-version-file: ".nvmrc"
           registry-url: "https://registry.npmjs.org"
           cache: 'pnpm'
-      - name: 'Create env file'
+
+      - name: "Create env file"
         run: |
-          echo DEPLOY_ENV=dev > .env
-      - name: Install Dependencies 📥
+          echo DEPLOY_ENV=prod > .env
+
+      - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Type Check 🧹
-        run: pnpm run typecheck
-      - name: Build website 📦
+      - name: Build website
         run: pnpm run build
+
+      # This is mostly the same as the write-rss.yml workflow
+      # Its duplicated because the below Deploy step will --delete any
+      # files in the S3 bucket that are not in the build directory
+      # But we are keeping the other workflow as well so it can run
+      # on a schedule to keep the RSS feeds up to date
+      - name: Fetch and Modify RSS Feed
+        run: |
+          curl -s https://webflow.dev-ngrok.com/blog-post/rss.xml | sed 's/webflow.dev-ngrok.com/dev-ngrok.com/g' > dev-rss.xml
+          curl -s https://webflow.stage-ngrok.com/blog-post/rss.xml | sed 's/webflow.stage-ngrok.com/stage-ngrok.com/g' > stage-rss.xml
+          curl -s https://webflow.ngrok.com/blog-post/rss.xml | sed 's/webflow.ngrok.com/ngrok.com/g' > rss.xml
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ 2b93c3a24618363a84e2607579de9e100782e656921a8a26ed813246c77b17e9 }}
+          aws-secret-access-key: ${{ 2b93c3a24618363a84e2607579de9e100782e656921a8a26ed813246c77b17e9 }}
+          aws-region: us-west-2
+
+      - name: Deploy
+        run: |
+          mkdir -p ./build/blog-post
+
+          mv dev-rss.xml ./build/blog-post/rss.xml
+          aws s3 sync ./build s3://docs-s3.dev-ngrok.com/docs --delete --acl public-read
+
+          mv stage-rss.xml ./build/blog-post/rss.xml
+          aws s3 sync ./build s3://docs-s3.stage-ngrok.com/docs --delete --acl public-read
+
+          mv rss.xml ./build/blog-post/rss.xml
+          aws s3 sync ./build s3://docs-s3.ngrok.com/docs --delete --acl public-read
