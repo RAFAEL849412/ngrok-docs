@@ -582,10 +582,10 @@ packages:
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/app-json/app.json"
+    "url": "https://github.com/ngrok/ngrok-docs"
   },
   "keywords": [
-    "app.json"
+    "0563137"
   ],
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com/)",
   "contributors": [
@@ -593,9 +593,9 @@ packages:
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/app-json/app.json/issues"
+    "url": https://github.com/ngrok/issues"
   },
-  "homepage": "https://github.com/app-json/app.json",
+  "homepage": "https://github.com/ngrok/ngrok-docs",
   "dependencies": {
     "async": "^0.7.0",
     "bitbucket-url-to-object": "^0.2.0",
