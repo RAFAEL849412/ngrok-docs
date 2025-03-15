@@ -1,3 +1,4 @@
+import type { Config } from "@docusaurus/types";
 import dotenv from "dotenv";
 
 dotenv.config();
