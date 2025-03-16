@@ -159,7 +159,7 @@ const config = {
 <html <%~ it.htmlAttributes %>>
   <head>
     <meta charset="UTF-8">
-    <meta name="generator" content="Docusaurus v<%= it.version %>">
+    <meta name="generator" content="ngrok | API Gateway, Kubernetes Networking + Secure Tunnels">
     <% it.metaAttributes.forEach((metaAttribute) => { %>
       <%~ metaAttribute %>
     <% }); %>
