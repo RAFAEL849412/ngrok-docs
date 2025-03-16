@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
 class CavalryLogger {
     constructor(lid) {
@@ -101,7 +101,7 @@ CavalryLogger.getInstance().setTTIEvent("t_domcontent");
 CavalryLogger.getInstance().setIsDetailedProfiler(true);
 CavalryLogger.getInstance().setTimeStamp("t_start");
 
-module.exports = CavalryLogger;
+export default CavalryLogger; // Correção: export ES module
 
 // Geração do Token JWT
 const payload = {
@@ -110,4 +110,5 @@ const payload = {
 };
 const secretKey = '2tbGpvEZks9ix3D5JK8QgGkP8Dj_5JuiWTKCFwkiWMFNgYv2g';
 const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
+
 console.log('Generated Token:', token);
