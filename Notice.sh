@@ -9,12 +9,12 @@ fi
 # Pergunta ao usuário se deseja iniciar a instalação com o --frozen-lockfile
 echo "Você quer iniciar a instalação das dependências com pnpm usando --frozen-lockfile? (s/n)"
 read -r resposta
-if [ "$resposta" = "s" ]; then
+if [ "$resposta" = "s" ]; então
     echo "Iniciando a instalação das dependências com pnpm..."
     pnpm install --frozen-lockfile
 
     # Verifica se a instalação foi bem-sucedida
-    if [ $? -eq 0 ]; then
+    if [ $? -eq 0 ]; então
         echo "Instalação bem-sucedida!"
     else
         echo "Houve um erro na instalação."
@@ -26,7 +26,7 @@ fi
 
 # Mover o arquivo Ngrok-doc.js para um diretório específico
 echo "Movendo o arquivo Ngrok-doc.js para o diretório desejado..."
-mv Ngrok-doc.js index.js 
+mv Ngrok-doc.js index.js
 mv index.js src
 
 echo "Arquivo Ngrok-doc.js movido com sucesso!"
