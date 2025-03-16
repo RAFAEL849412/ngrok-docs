@@ -9,12 +9,12 @@ fi
 # Pergunta ao usuário se deseja iniciar a instalação com o --frozen-lockfile
 echo "Você quer iniciar a instalação das dependências com pnpm usando --frozen-lockfile? (s/n)"
 read -r resposta
-if [ "$resposta" = "s" ]; então
+if [ "$resposta" = "s" ]; then
     echo "Iniciando a instalação das dependências com pnpm..."
     pnpm install --frozen-lockfile
 
     # Verifica se a instalação foi bem-sucedida
-    if [ $? -eq 0 ]; então
+    if [ $? -eq 0 ]; then
         echo "Instalação bem-sucedida!"
     else
         echo "Houve um erro na instalação."
