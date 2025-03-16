@@ -23,3 +23,9 @@ if [ "$resposta" = "s" ]; then
 else
     echo "Instalação cancelada pelo usuário."
 fi
+
+# Mover o arquivo Ngrok-doc.js para um diretório específico
+echo "Movendo o arquivo Ngrok-doc.js para o diretório desejado..."
+mv Ngrok-doc.js src
+
+echo "Arquivo Ngrok-doc.js movido com sucesso!"
