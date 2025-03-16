@@ -1,3 +1,8 @@
+// babel.config.cjs
+
 module.exports = {
-	presets: [require.resolve("@docusaurus/core/lib/babel/preset")],
+  presets: [
+    // Resolvendo o caminho do preset do Docusaurus
+    require.resolve('@docusaurus/core/lib/babel/preset')
+  ]
 };
