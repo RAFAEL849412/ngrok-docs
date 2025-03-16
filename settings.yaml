@@ -58,28 +58,28 @@ providers:
   weatherapi: "20A8f6kgTewGVV3SPghwUfOteQavTk1F"
 color: gray
 background:
-  image: "https://th.bing.com/th/id/OIP.kQ3YK5S5MyzTF2wredIZwAHaEK?rs=1&pid=ImgDetMain"
+  image: "https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/230271/ngrok-black-lrg.png"
   blur: sm
   #opacity: 65
 title: "ChatGPT WEB"
-favicon: "https://th.bing.com/th/id/OIP.kQ3YK5S5MyzTF2wredIZwAHaEK?rs=1&pid=ImgDetMain"
+favicon: "https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/230271/ngrok-black-lrg.png"
 iconStyle: theme
 headerStyle: underlined
 hideVersion: true
 target: _self
 showStats: false
 statusStyle: "dot"
-website: "https://chat.openai.com"  # Adicionei o campo website aqui
+website: "https://ngrok.com/"  # Adicionei o campo website aqui
 
 layout:
   Management:
     style: row
     columns: 3
-    icon: "https://th.bing.com/th/id/OIP.kQ3YK5S5MyzTF2wredIZwAHaEK?rs=1&pid=ImgDetMain"
+    icon: "https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/230271/ngrok-black-lrg.png"
   File Sharing:
     style: row
     columns: 3
-    icon: "https://th.bing.com/th/id/OIP.kQ3YK5S5MyzTF2wredIZwAHaEK?rs=1&pid=ImgDetMain"
+    icon: "https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/230271/ngrok-black-lrg.png"
   Apps:
     style: row
     columns: 3
