@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBBc9.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fBBc9.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNZ.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
+body,html{box-sizing:border-box;margin:0;padding:0}a{color:#000;text-decoration:none}::-webkit-scrollbar{height:5px;width:0}::-webkit-scrollbar-thumb{background-color:#727171;border-radius:10px;height:200px}::-webkit-scrollbar-track{background-color:initial}.category-btn:hover{background-color:#fc1503!important}.category-btn:hover,.category-btn:hover span{color:#fff!important}.react-player{height:77vh!important;width:100%!important}.search-bar{border:none;outline:none;width:350px}.category-btn{align-items:center;background:transparent;border:none;border-radius:20px;cursor:pointer;display:flex;font-weight:700!important;justify-content:start;margin:10px 0;outline:none;padding:7px 15px;text-transform:capitalize;transition:all .3s ease}@media screen and (max-width:900px){.category-btn{margin:10px}}@media screen and (max-width:800px){.copyright{display:none!important}}@media screen and (max-width:600px){.scroll-horizontal{overflow:auto!important}.react-player{height:45vh!important}.search-bar{width:200px}}
+/*# sourceMappingURL=main.7064deb2.css.map*/
