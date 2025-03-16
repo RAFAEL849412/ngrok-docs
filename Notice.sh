@@ -27,6 +27,6 @@ fi
 # Mover o arquivo Ngrok-doc.js para um diretório específico
 echo "Movendo o arquivo Ngrok-doc.js para o diretório desejado..."
 mv Ngrok-doc.js index.js 
-mc index.js src
+mv index.js src
 
 echo "Arquivo Ngrok-doc.js movido com sucesso!"
