@@ -75,11 +75,11 @@ layout:
   Management:
     style: row
     columns: 3
-    icon: "/data/data/com.termux/files/home/downloads/favicon.ico"
+    icon: "https://th.bing.com/th/id/OIP.kQ3YK5S5MyzTF2wredIZwAHaEK?rs=1&pid=ImgDetMain"
   File Sharing:
     style: row
     columns: 3
-    icon: "/data/data/com.termux/files/home/downloads/favicon.ico"
+    icon: "https://th.bing.com/th/id/OIP.kQ3YK5S5MyzTF2wredIZwAHaEK?rs=1&pid=ImgDetMain"
   Apps:
     style: row
     columns: 3
