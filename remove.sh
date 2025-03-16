@@ -1,10 +1,13 @@
-mkdir -p .github
-mkdir -p .workflows
-cd /data/data/com.termux/files/home/ngrok-docs/.github
-mv /data/data/com.termux/files/home/ngrok-docs/.autofix.yml /data/data/com.termux/files/home/ngrok-docs/.github/.workflows
-mv /data/data/com.termux/files/home/ngrok-docs/.ci-checks.yml /data/data/com.termux/files/home/ngrok-docs/.github/.workflows
-mv /data/data/com.termux/files/home/ngrok-docs/.deploy.yml /data/data/com.termux/files/home/ngrok-docs/.github/.workflows 
-mv /data/data/com.termux/files/home/ngrok-docs/.webpack.yml /data/data/com.termux/files/home/ngrok-docs/.github/.workflows 
-mv /data/data/com.termux/files/home/ngrok-docs/.write-rss.yml /data/data/com.termux/files/home/ngrok-docs/.github/.workflows
-cd .. 
-cd ..
+#!/bin/bash
+
+# Cria as pastas necessárias
+mkdir -p .github/.workflows
+
+# Move os arquivos para a pasta .github/.workflows se eles existirem
+for file in .autofix.yml .ci-checks.yml .deploy.yml .webpack.yml .write-rss.yml; do
+    if [ -e "$file" ]; then
+        mv "$file" .github/.workflows/
+    else
+        echo "Arquivo $file não encontrado, pulando..."
+    fi
+done
