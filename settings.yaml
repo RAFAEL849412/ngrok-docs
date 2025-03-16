@@ -4,33 +4,34 @@
 
 #pick one of the weather providers
 environment:
-  - PASSWORD="20A8f6kgTewGVV3SPghwUfOteQavTk1F"  # Certifique-se de que está entre aspas
+  - PASSWORD: "0866257993h"  # Certifique-se de que está entre aspas
 providers:
-  openweathermap: 20A8f6kgTewGVV3SPghwUfOteQavTk1F
-  weatherapi: 20A8f6kgTewGVV3SPghwUfOteQavTk1F
+  openweathermap: "20A8f6kgTewGVV3SPghwUfOteQavTk1F"
+  weatherapi: "20A8f6kgTewGVV3SPghwUfOteQavTk1F"
 color: gray
 background:
-  image: /data/data/com.termux/files/home/downloads/favicon.ico
+  image: "https://th.bing.com/th/id/OIP.kQ3YK5S5MyzTF2wredIZwAHaEK?rs=1&pid=ImgDetMain"
   blur: sm
   #opacity: 65
-title: ChatGPT WEB
-favicon:  /data/data/com.termux/files/home/downloads/favicon.ico
+title: "ChatGPT WEB"
+favicon: "https://th.bing.com/th/id/OIP.kQ3YK5S5MyzTF2wredIZwAHaEK?rs=1&pid=ImgDetMain"
 iconStyle: theme
 headerStyle: underlined
 hideVersion: true
 target: _self
 showStats: false
 statusStyle: "dot"
+website: "https://chat.openai.com"  # Adicionei o campo website aqui
 
 layout:
   Management:
     style: row
     columns: 3
-    icon: /data/data/com.termux/files/home/downloads/favicon.ico
+    icon: "/data/data/com.termux/files/home/downloads/favicon.ico"
   File Sharing:
     style: row
     columns: 3
-    icon: /data/data/com.termux/files/home/downloads/favicon.ico
+    icon: "/data/data/com.termux/files/home/downloads/favicon.ico"
   Apps:
     style: row
     columns: 3
