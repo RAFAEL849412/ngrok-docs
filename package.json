@@ -3,11 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@10.4.1",
- {
-  "scripts": {
-    "build": "your build command here"
-  }
-}
   "engines": {
     "node": "^22.0.0"
   },
