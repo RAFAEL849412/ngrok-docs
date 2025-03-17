@@ -154,7 +154,7 @@ const config = {
   stylesheets: [
     'https://s1.wp.com/_static/??-eJydzEEOwiAQQNELiVMXtCvjWYYBETsOhKE1vb01xrWR/X8fnsVQlhakQeElJlFgFF+QZnBLYg/aNg5HUj3A71hwNX8Bx5nmDzFpb7UHKtXMnCT24FteQzXUsAc3dC74r+g6bGUfXFNg38M5x2wc1re9PM6nabB2Gu0w3l/E9bJY&cssminify=yes',
   ],
-  clientModules: ['./mySiteGlobalJs.js', './mySiteGlobalCss.css', './mySiteAnotherModule.js'],
+  clientModules: ['./mySiteGlobalJs.js', './mySiteGlobalCss.css', './mySiteAnotherModule.json'],
   ssrTemplate: `<!DOCTYPE html>
 <html <%~ it.htmlAttributes %>>
   <head>
