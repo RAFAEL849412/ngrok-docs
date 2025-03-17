@@ -2,23 +2,33 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 require('dotenv').config();
-const password = process.env.PASSWORD;
-// Criar a aplicação Express
+
 const app = express();
+
+// Verifica se a variável de ambiente PASSWORD está definida
+const password = process.env.PASSWORD;
+if (!password) {
+  console.error('Erro: A variável de ambiente PASSWORD não está definida.');
+  process.exit(1);
+}
 
 // Configuração do middleware
 app.use(bodyParser.json());
 
 // Conectar ao MongoDB (substitua pela sua URI do MongoDB)
-mongoose.connect('docs-s3.dev-ngrok.com', { useNewUrlParser: true, useUnifiedTopology: true })
+const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/ngrok-docs';
+mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Conectado ao MongoDB'))
-  .catch(err => console.log('Erro de conexão com o MongoDB:', err));
+  .catch(err => {
+    console.error('Erro de conexão com o MongoDB:', err);
+    process.exit(1);
+  });
 
 // Criar o modelo para o dispositivo
 const DispositivoSchema = new mongoose.Schema({
-  nome: String,
-  tipo: String,
-  sistemaOperacional: String,
+  nome: { type: String, required: true },
+  tipo: { type: String, required: true },
+  sistemaOperacional: { type: String, required: true },
   dataRegistro: { type: Date, default: Date.now }
 });
 
