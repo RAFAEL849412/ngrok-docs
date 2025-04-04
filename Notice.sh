@@ -1,9 +1,13 @@
 #!/bin/bash
 
-# Verifica se o pnpm está instalado
-if ! command -v pnpm &> /dev/null; then
-    echo "pnpm não encontrado. Instalando o pnpm..."
+# Pergunta ao usuário se deseja instalar/atualizar o pnpm globalmente via npm
+read -n1 -p "Deseja instalar ou atualizar o pnpm com 'npm install -g pnpm'? (s/n): " instalar_pnpm
+echo
+if [[ "$instalar_pnpm" =~ ^[sS]$ ]]; then
+    echo "Instalando/atualizando pnpm com npm..."
     npm install -g pnpm
+else
+    echo "Instalação do pnpm ignorada pelo usuário."
 fi
 
 # Pergunta ao usuário se deseja iniciar a instalação das dependências com pnpm
